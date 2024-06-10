@@ -1,8 +1,12 @@
 package ru.netology;
 
-// Meeting — задача, описывающая назначенную встречу. Про неё известны id — число, topic — тема обсуждения,
-// project — название проекта, который будут обсуждать, и start — дата и время старта текстом.
-
+/**
+ * Meeting — задача, описывающая назначенную встречу:
+ * id — число;
+ * topic — тема обсуждения;
+ * project — название проекта, который будут обсуждать;
+ * start — дата и время старта текстом.
+ */
 
 public class Meeting extends Task {
     protected String topic;
@@ -28,15 +32,17 @@ public class Meeting extends Task {
         return topic;
     }
 
+    // Метод, проверяющий подходит ли эта задача поисковому запросу.
+    // Задача подходит, если запрос query встречается в topic или project.
 
     @Override
     public boolean matches(String query) {
         if (topic.contains(query)) {
             return true;
-        }
-        if (project.contains(query)) {
+        } else if (project.contains(query)) {
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }

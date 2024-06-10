@@ -1,6 +1,10 @@
 package ru.netology;
 
-// SimpleTask — простая задача, про неё известны только id (число) и title (название);
+/**
+ * SimpleTask — простая задача, состоящая из:
+ * id — число;
+ * title — название.
+ */
 
 public class SimpleTask extends Task {
     protected String title;
@@ -12,5 +16,16 @@ public class SimpleTask extends Task {
 
     public String getTitle() {
         return title;
+    }
+
+    // Метод, проверяющий подходит ли эта задача поисковому запросу.
+    // Задача подходит, если запрос query встречается в title.
+
+    @Override
+    public boolean matches(String query) {
+        if (title.contains(query)) {
+            return true;
+        }
+        return false;
     }
 }

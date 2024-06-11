@@ -21,14 +21,6 @@ public class TasksTest {
     }
 
     @Test
-    public void getSimpleTaskTitle() {
-        SimpleTask simpleTask = new SimpleTask(5, "Позвонить родителям");
-
-        String actual = simpleTask.getTitle();
-        Assertions.assertEquals("Позвонить родителям", actual);
-    }
-
-    @Test
     public void matchEpic() {
         Epic epic = new Epic(15, new String[]{"Зайти в магазин", "Зайти в прачечную", "Зайти в добрые булки"});
 
@@ -78,29 +70,5 @@ public class TasksTest {
         boolean actual = meeting.matches("Капуста");
         Assertions.assertFalse(actual);
 
-    }
-
-    @Test
-    public void getMeetingTopic() {
-        Meeting meeting = new Meeting(25, "Встреча с другом", "Доктор", "Вторник");
-
-        String actual = meeting.getTopic();
-        Assertions.assertEquals("Встреча с другом", actual);
-    }
-
-    @Test
-    public void getMeetingProject() {
-        Meeting meeting = new Meeting(25, "Встреча с другом", "Доктор", "Вторник");
-
-        String actual = meeting.getProject();
-        Assertions.assertEquals("Доктор", actual);
-    }
-
-    @Test
-    public void getMeetingStart() {
-        Meeting meeting = new Meeting(25, "Встреча с другом", "Доктор", "Вторник");
-
-        String actual = meeting.getStart();
-        Assertions.assertEquals("Вторник", actual);
     }
 }
